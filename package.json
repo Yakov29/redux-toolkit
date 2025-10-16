@@ -1,6 +1,5 @@
 {
   "name": "tasks-redux-toolkit",
-  "homepage": "https://yakov29.github.io/tasks-redux-toolkit/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
