@@ -3,7 +3,9 @@ import { createReducer } from "@reduxjs/toolkit";
 
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = JSON.parse(localStorage.getItem("tasks")) || [];
+const initialState = {
+  tasks: [],
+}
 
 // export const tasksReducer = (state = initialState, action,) => {
 //   switch (action.type) {
@@ -57,24 +59,28 @@ const taskSlice = createSlice({
   initialState,
   reducers: {
     addTask(state, action) {
-      const newState = [...state, action.payload];
-      localStorage.setItem("tasks", JSON.stringify(newState));
+      console.log(state)
+      // const newState = [...state, action.payload];
+       const newState = action.payload
+       state.tasks.push(newState)
+      // localStorage.setItem("tasks", JSON.stringify(newState));
       return newState;
     },
-    removeTask(state, action) {
-      const newState = state.filter((task) => task.id !== action.payload);
-      localStorage.setItem("tasks", JSON.stringify(newState));
-      return newState;
-    },
-    filterTask(state, action) {
-      const oldState = JSON.parse(localStorage.getItem("tasks"));
-      const newState = oldState.filter((task) => task.title === action.payload);
-      console.log(action.payload);
-      return newState;
-    },
+    // removeTask(state, action) {
+    //   const newState = state.filter((task) => task.id !== action.payload);
+    //   // localStorage.setItem("tasks", JSON.stringify(newState));
+    //   return newState;
+    // },
+    // filterTask(state, action) {
+    //   const oldState = JSON.parse(localStorage.getItem("tasks"));
+    //   const newState = oldState.filter((task) => task.title === action.payload);
+    //   console.log(action.payload);
+    //   return newState;
+    // },
   },
 });
 
-
+export const taskReducer = taskSlice.reducer;
 export const { addTask, removeTask, filterTask } = taskSlice.actions
-export default taskSlice.reducer
+
+

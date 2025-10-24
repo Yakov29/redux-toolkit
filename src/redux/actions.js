@@ -16,6 +16,7 @@ import { createAction } from "@reduxjs/toolkit";
 // });
 
 export const addTask = createAction("tasks/addTask", (task) => {
+  console.log(task)
   return {
     type: "addTask",
     payload: task,
@@ -23,6 +24,7 @@ export const addTask = createAction("tasks/addTask", (task) => {
 });
 
 export const removeTask = createAction("tasks/removeTask", (taskId) => {
+    console.log(taskId)
   return {
     type: "removeTask",
     payload: taskId,
