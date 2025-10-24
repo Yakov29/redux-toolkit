@@ -7,7 +7,8 @@ import "./Head.css";
 
 const Head = () => {
   const dispatch = useDispatch();
-  const tasks = useSelector((state) => state.tasks);
+  const tasks = useSelector((state) => state);
+  console.log(tasks)
   const [inputValue, setInputValue] = useState("");
 
   const handleAdd = () => {
